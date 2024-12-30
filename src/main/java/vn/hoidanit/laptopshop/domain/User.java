@@ -32,7 +32,7 @@ public class User {
     private Role role;
 
     @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+    List<Order> orders;
 
     public Role getRole() {
         return role;
