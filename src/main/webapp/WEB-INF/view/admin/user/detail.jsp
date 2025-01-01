@@ -44,6 +44,8 @@
                                                     <li class="list-group-item">Email: ${user.email} </li>
                                                     <li class="list-group-item">FullName: ${user.fullName}</li>
                                                     <li class="list-group-item">Address: ${user.address}</li>
+                                                    <li class="list-group-item">Role: ${user.Role}</li>
+
 
                                                 </ul>
                                             </div>
