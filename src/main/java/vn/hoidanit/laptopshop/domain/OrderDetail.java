@@ -15,16 +15,18 @@ public class OrderDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private long quantity;
+    private double price;
+
+    // order_id: long
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
 
+    // product_id: long
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-
-    private long quantity;
-    private double price;
 
     public long getId() {
         return id;
@@ -32,22 +34,6 @@ public class OrderDetail {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public long getQuantity() {
@@ -64,6 +50,22 @@ public class OrderDetail {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
 }
