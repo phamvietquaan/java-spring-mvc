@@ -49,7 +49,9 @@ public class SecurityConfiguration {
                                 DispatcherType.INCLUDE)
                         .permitAll()
 
-                        .requestMatchers("/", "/login", "/client/**", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/", "/login", "/client/**", "/css/**", "/js/**",
+                                "/images/**")
+                        .permitAll()
                         .anyRequest().authenticated())
 
                 .formLogin(formLogin -> formLogin
@@ -59,5 +61,4 @@ public class SecurityConfiguration {
 
         return http.build();
     }
-
 }
