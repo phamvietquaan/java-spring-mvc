@@ -1,7 +1,6 @@
 package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
-
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -36,7 +35,8 @@ public class ProductController {
     }
 
     @GetMapping("/admin/product")
-    public String getProduct(Model model,
+    public String getProduct(
+            Model model,
             @RequestParam("page") Optional<String> pageOptional) {
         int page = 1;
         try {
@@ -50,10 +50,12 @@ public class ProductController {
             // page = 1
             // TODO: handle exception
         }
-        Pageable pageable = PageRequest.of(page - 1, 2);
+
+        Pageable pageable = PageRequest.of(page - 1, 5);
         Page<Product> prs = this.productService.fetchProducts(pageable);
         List<Product> listProducts = prs.getContent();
         model.addAttribute("products", listProducts);
+
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", prs.getTotalPages());
 
